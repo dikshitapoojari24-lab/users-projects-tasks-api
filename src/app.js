@@ -12,6 +12,19 @@ import notFoundMiddleware from "./middleware/notFoundMiddleware.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
 
 const app = express();
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Welcome to the Users, Projects & Tasks REST API — Innovation Hacks Internship.",
+    health: "/api/health",
+    endpoints: {
+      auth: "/api/auth",
+      users: "/api/users",
+      projects: "/api/projects",
+      tasks: "/api/tasks"
+    }
+  });
+});
 
 // ===============================
 // GLOBAL MIDDLEWARE
