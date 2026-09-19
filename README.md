@@ -1,8 +1,8 @@
-# Users, Projects & Tasks REST API
+# Users, Projects & Tasks REST API — Task 3
 
-A production-ready REST API for managing users, projects, and tasks.
+A production-ready REST API for managing users, projects, and tasks with a persistent MongoDB data layer.
 
-This backend provides secure user authentication, project management, task management, validation, centralized error handling, and JWT-based authorization.
+This backend provides secure user authentication, project management, task management, database relationships, validation, centralized error handling, and JWT-based authorization.
 
 ---
 
@@ -11,18 +11,21 @@ This backend provides secure user authentication, project management, task manag
 - User registration and login
 - JWT-based authentication
 - Protected API routes
-- Get and update current user profile
-- Create and retrieve projects
+- Get, update, and delete current user profile
+- Create, retrieve, update, and delete projects
 - Create, retrieve, update, and delete tasks
 - Task status management
 - Task statuses:
   - `todo`
   - `in-progress`
   - `done`
+- User-project relationship
+- User-task relationship
 - Project-task relationship
+- MongoDB persistent data storage
+- Mongoose schema and model validation
 - Input validation using Express Validator
 - Centralized error handling
-- MongoDB database integration using Mongoose
 - Secure password hashing using bcrypt
 - Environment variable configuration
 - CORS support
@@ -31,78 +34,15 @@ This backend provides secure user authentication, project management, task manag
 
 ---
 
-## 🛠️ Tech Stack
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-
-### Authentication & Security
-- JSON Web Token (JWT)
-- bcryptjs
-- Helmet
-- CORS
-
-### Validation & Utilities
-- Express Validator
-- Morgan
-- dotenv
-
-### Testing
-- Thunder Client
-
----
-
-## 📁 Project Structure
+## 🏗️ Architecture
 
 ```text
-users-projects-tasks-api/
-│
-├── api/
-│   └── index.js
-│
-├── src/
-│   ├── config/
-│   │   └── db.js
-│   │
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── userController.js
-│   │   ├── projectController.js
-│   │   └── taskController.js
-│   │
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   ├── errorMiddleware.js
-│   │   ├── notFoundMiddleware.js
-│   │   └── validationMiddleware.js
-│   │
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Project.js
-│   │   └── Task.js
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── userRoutes.js
-│   │   ├── projectRoutes.js
-│   │   └── taskRoutes.js
-│   │
-│   ├── utils/
-│   │   └── generateToken.js
-│   │
-│   ├── validators/
-│   │   ├── authValidator.js
-│   │   ├── projectValidator.js
-│   │   └── taskValidator.js
-│   │
-│   ├── app.js
-│   └── server.js
-│
-├── .env
-├── .env.example
-├── .gitignore
-├── package.json
-└── README.md
+Client / Frontend
+       ↓
+    REST API
+       ↓
+   Express.js
+       ↓
+    Mongoose
+       ↓
+    MongoDB
