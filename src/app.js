@@ -15,7 +15,8 @@ const app = express();
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Welcome to the Users, Projects & Tasks REST API — Innovation Hacks Internship.",
+    message: "Welcome to the Task 3:- Persistent Data Layer.",
+    database: "MongoDB",
     health: "/api/health",
     endpoints: {
       auth: "/api/auth",
