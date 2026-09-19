@@ -1,10 +1,12 @@
 import express from "express";
+
 import protect from "../middleware/authMiddleware.js";
 import validationMiddleware from "../middleware/validationMiddleware.js";
 
 import {
   getCurrentUser,
-  updateCurrentUser
+  updateCurrentUser,
+  deleteCurrentUser
 } from "../controllers/userController.js";
 
 import { updateUserValidator } from "../validators/authValidator.js";
@@ -23,6 +25,12 @@ router.put(
   updateUserValidator,
   validationMiddleware,
   updateCurrentUser
+);
+
+router.delete(
+  "/me",
+  protect,
+  deleteCurrentUser
 );
 
 export default router;
